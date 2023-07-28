@@ -26,12 +26,15 @@ for (i in 1:total_pages) {
   #Dari link
   # url <- paste0('https://tolonews.com/index.php/fa/afghanistan/all?page=',i)
   webpage <- read_html(url)
+  
+  # Short title
   ar_title <- html_nodes(webpage,'.title-article')
   ar_date <- html_nodes(webpage,'span.post-date.grey-light3.uppercase-txt')
   get_title <- html_text(ar_title, trim = T)
   get_title <- get_title[1:10]
   page_id[1:10] <- i
   
+  # Long title
   ar_title2 <- html_nodes(webpage,'.hidden-onmobile')
   get_title2 <- html_text(ar_title2, trim = T)
   get_title2 <- get_title2[4:13]
@@ -64,7 +67,7 @@ for (i in 1:total_pages) {
     
   links_data <- rbind(links_data, links)
   
-  
+  # Progress
   cat("\014")  
   print(paste0("Page ",i, " of ", total_pages, " Scraped!"))
   print(paste0("Progress: ",  round(i/total_pages * 100, 1 ), "%"))
