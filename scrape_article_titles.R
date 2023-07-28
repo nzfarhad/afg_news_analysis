@@ -70,11 +70,10 @@ for (i in 1:total_pages - 1) {
 merged_new_data <- cbind(titles_df, dates_data, links_data)
 
 # export data
-
-openxlsx::write.xlsx(dates_data, paste0("output/dari_data/dates", Sys.Date(), ".xlsx"))
-openxlsx::write.xlsx(links_data, paste0("output/dari_data/links", Sys.Date(), ".xlsx"))
-openxlsx::write.xlsx(titles_df, paste0("output/dari_data/titles", Sys.Date(), ".xlsx"))
-openxlsx::write.xlsx(merged_new_data, paste0("output/dari_data/all_data", Sys.Date(), ".xlsx"))
-write_rds(merged_new_data, paste0("output/dari_data/all_data", Sys.Date(), ".rds"))
+openxlsx::write.xlsx(dates_data, paste0("output/dates", Sys.Date(), ".xlsx"))
+openxlsx::write.xlsx(links_data, paste0("output/links", Sys.Date(), ".xlsx"))
+openxlsx::write.xlsx(titles_df, paste0("output/titles", Sys.Date(), ".xlsx"))
+openxlsx::write.xlsx(merged_new_data, paste0("output/all_data", Sys.Date(), ".xlsx"))
+write_rds(merged_new_data, paste0("output/all_data", Sys.Date(), ".rds"))
 
 
