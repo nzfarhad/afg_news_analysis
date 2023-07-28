@@ -1,1 +1,1 @@
-"# Afghanistan News Analysis" 
+# Afghanistan News Analysis
