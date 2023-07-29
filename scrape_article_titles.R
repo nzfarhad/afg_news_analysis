@@ -9,9 +9,8 @@ library(xml2)
 # Scrape article title, date and link -------------------------------------
 
 # Create empty vectors
-all_tittles <- vector()
 page_id <- vector()
-page_id_all <- vector()
+
 
 # Create empty dataframes
 titles_df <- data.frame(row.names = 1)
@@ -77,9 +76,10 @@ for (i in 1:total_pages) {
 # merge data
 merged_data <- cbind(
   titles_df, 
-  select(dates_data, -c(`.class`, page_id)),
+  select(dates_data, date_time = `data-time`),
   select(links_data, -c(page_id))) %>% 
   mutate_all(as.character)
+
 
 # export data
 openxlsx::write.xlsx(dates_data, paste0("output/dates", Sys.Date(), ".xlsx"))

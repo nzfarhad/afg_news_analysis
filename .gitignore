@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-sql_test.R
+test.R
 
 /input/*.xlsx
 /output/*.xlsx
